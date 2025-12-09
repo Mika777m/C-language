@@ -20,6 +20,8 @@ int main() {
     int tableau[] = {64, 34, 25, 12, 22, 11, 90};
     int n = sizeof(tableau) / sizeof(tableau[0]);
 
+    // Ca va très très bien
+
     bubbleSort(tableau, n);
 
     printf("Tableau trié : \n");
