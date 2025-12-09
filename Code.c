@@ -1,34 +1,30 @@
 #include <stdio.h>
-#include <maths.h>
 
-int main(void){
-    int a;
-    int b;
-    int c;
-    float X;
-    float X1;
-    float X2;
-    
-    printf("Entrez la valeure de a , b  et c :");
-    scanf("%d %d %d ", &a, &b, &c);
-    int delta = b * b - 4 * a * c;
-    if(delta = 0)
-    {
-        printf("Une seule solution X: ");
-        X = -b / (2 * a);
-        printf("%f" , X);
+void bubbleSort(int tableau[], int n) {
+    int i, j, temp;
+    // Parcours du tableau
+    for (i = 0; i < n - 1; i++) {
+        // Derniers éléments déjà triés à chaque boucle
+        for (j = 0; j < n - 1 - i; j++) {
+            // Si l'élément actuel est plus grand que le suivant → on échange
+            if (tableau[j] > tableau[j + 1]) {
+                temp = tableau[j];
+                tableau[j] = tableau[j + 1];
+                tableau[j + 1] = temp;
+            }
+        }
     }
-    else if(delta > 0)
-    {
-        printf("Deux racines X1 et X2: ");
-        X1 = (- b - sqrt(delta)) / (2 * a);
-        printf("%f", X1);
-        X2 = (-b - sqrt(delta)) / (2 * a);
-        printf("%f", X2);
-    }
-    else
-    {
-        printf("Pas de solution");
+}
+
+int main() {
+    int tableau[] = {64, 34, 25, 12, 22, 11, 90};
+    int n = sizeof(tableau) / sizeof(tableau[0]);
+
+    bubbleSort(tableau, n);
+
+    printf("Tableau trié : \n");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", tableau[i]);
     }
 
     return 0;
